@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
-import ExpenseItem  from './components/ExpenseItem';
-import Cards from './components/Cards'
+import ExpenseItem  from './components/Expenses/ExpenseItem';
+import Cards from './components/UI/Cards'
 
 function App() {
   const expenses=[
