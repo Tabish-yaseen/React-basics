@@ -1,0 +1,16 @@
+.expense-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin: 10px;
+  }
+  
+  .expense-item {
+    margin-bottom: 10px;
+  }
+  
+  .nested-expense {
+    margin-left: 20px;
+    color: #555;
+  }
