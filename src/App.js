@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import Expense  from './components/Exepnse';
+import ExpenseItem  from './components/ExpenseItem';
+import Cards from './components/Cards'
 
 function App() {
   const expenses=[
@@ -10,11 +11,11 @@ function App() {
     {title:'books',Amount:200,time:new Date(2024,0,23),location:'amritsar'},
   ]
   return (
-    <div>
+    <Cards>
       <h1>hi welcome</h1>
       {expenses.map((element)=>{
         return(
-          <Expense
+          <ExpenseItem
          title={element.title}
          Amount={element.Amount} 
          time={element.time} 
@@ -22,10 +23,8 @@ function App() {
          />
 
         )
-        
-
       })}
-    </div>
+    </Cards>
     
   );
 }

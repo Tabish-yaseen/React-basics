@@ -1,0 +1,14 @@
+.expense-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  .expense-item h1,
+  .expense-item,
+  .expense-details-location {
+    margin: 0;
+  }
