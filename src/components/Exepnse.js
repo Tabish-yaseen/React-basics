@@ -1,23 +1,17 @@
 import './Expense.css'
-function Expense() {
-    const currentDate = new Date(2023, 0, 20);
-    const title = 'Food';
-    const amount = 1000;
-    const locationOfExpenditure = 'Grocery Store'; 
-  
-    
-    const formattedDate = currentDate.toLocaleDateString();
-  
+function Expense(props) {
+    const time = props.time.toISOString();
+
     return (
       <div className="expense-container">
-        <div className="expense-item">{title}</div>
+        <div className="expense-item">{props.title}</div>
         <div className="expense-item">
-          <h1>{formattedDate}</h1>
-          <div className="nested-expense">${amount}</div>
-          <p>Location: {locationOfExpenditure}</p> 
+          <h1>${props.Amount}</h1>
+          <div className="nested-expense">{time}</div>
+          <p>Location: {props.location}</p> 
         </div>
       </div>
     );
   }
   
-  export default Expense;
+  export default Expense; 
