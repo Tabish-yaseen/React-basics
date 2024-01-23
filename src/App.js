@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import './App.css';
 import ExpenseItem  from './components/Expenses/ExpenseItem';
 import Cards from './components/UI/Cards'
+import NewExpense from './components/NewExpense/NewExpense';
 
 function App() {
   const previousExpenses=[
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <Cards>
-      <h1>hi welcome</h1>
+     <NewExpense/>
       {updatedExpenses.map((element,i)=>{
         return(
           <ExpenseItem
