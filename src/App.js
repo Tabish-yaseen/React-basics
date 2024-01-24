@@ -13,6 +13,13 @@ function App() {
   ]
   const[updatedExpenses,setExpenses]=useState(previousExpenses)
 
+  const addExpense=(expense)=>{
+    let newExpenses=[...updatedExpenses]
+    newExpenses.push(expense)
+    setExpenses(newExpenses)
+
+  }
+
   const deleteExpenses=(i)=>{
     let newExpenses=[...updatedExpenses]
     let xyz=newExpenses.filter((element)=>{
@@ -24,22 +31,21 @@ function App() {
 
   return (
     <Cards>
-     <NewExpense/>
-      {updatedExpenses.map((element,i)=>{
-        return(
+      <NewExpense onAddExpenseHandler={addExpense} />
+      {updatedExpenses.map((element) => {
+        return (
           <ExpenseItem
-         title={element.title}
-         Amount={element.Amount} 
-         time={element.time} 
-         location={element.location}
-         index={element.key}
-         deleteExpenses={deleteExpenses}
-         />
-
-        )
+            key={element.key}
+            title={element.title}
+            Amount={element.Amount}
+            time={element.time}
+            location={element.location}
+            index={element.key} // Use 'id' for consistency
+            deleteExpenses={deleteExpenses}
+          />
+        );
       })}
     </Cards>
-    
   );
 }
 

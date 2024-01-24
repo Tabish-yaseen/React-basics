@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import "./Expense.css";
 
-export default function ExpenseForm() {
+export default function ExpenseForm(props) {
   const [enteredAmount, setenteredAmount] = useState("");
   const [enteredDate, setenteredDate] = useState("");
 
   const [enteredTitle, setEnteredTitle] = useState("");
+  const[enteredLocation,setEnteredLocation]=useState("")
 
+  const locationChangeHandler=(event)=>{
+    setEnteredLocation(event.target.value)
+
+  }
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
@@ -24,12 +29,14 @@ export default function ExpenseForm() {
     const expenseData = {
       title: enteredTitle,
       Amount: enteredAmount,
-      date: new Date(enteredDate),
+      time: new Date(enteredDate),
+      location:enteredLocation
     };
-    console.log(expenseData);
+    props.onSaveHandler(expenseData);
     setEnteredTitle('')
     setenteredAmount('')
     setenteredDate('')
+    setEnteredLocation('')
   };
   
   return (
@@ -60,6 +67,14 @@ export default function ExpenseForm() {
             max="2022-12-31"
             value={enteredDate}
             onChange={dateChangeHandler}
+          />
+        </div>
+        <div className="new-expense__control">
+          <label>location</label>
+          <input
+            type="text"
+            value={enteredLocation}
+            onChange={locationChangeHandler}
           />
         </div>
         <div className="new-expense__actions">
