@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import './App.css';
 import ExpenseItem  from './components/Expenses/ExpenseItem';
+import ExpenseFilter from './components/Expenses/ExpenseFilter';
 import Cards from './components/UI/Cards'
 import NewExpense from './components/NewExpense/NewExpense';
 
@@ -19,6 +20,12 @@ function App() {
     setExpenses(newExpenses)
 
   }
+  const[selectedValue,setSelectedValue]=useState('2023')
+  const changleFilter=(value)=>{
+    setSelectedValue(value)
+
+
+  }
 
   const deleteExpenses=(i)=>{
     let newExpenses=[...updatedExpenses]
@@ -31,6 +38,7 @@ function App() {
 
   return (
     <Cards>
+      <ExpenseFilter  selectedYear={selectedValue} onChangeFilter={changleFilter}/>
       <NewExpense onAddExpenseHandler={addExpense} />
       {updatedExpenses.map((element) => {
         return (
@@ -40,7 +48,7 @@ function App() {
             Amount={element.Amount}
             time={element.time}
             location={element.location}
-            index={element.key} // Use 'id' for consistency
+            index={element.key} 
             deleteExpenses={deleteExpenses}
           />
         );
