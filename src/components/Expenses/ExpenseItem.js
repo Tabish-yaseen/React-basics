@@ -3,7 +3,6 @@ import './ExpenseItem.css';
 import ExpenseDate from './ExpenseDate';
 import Cards from '../UI/Cards';
 import ExpenseDetails from './ExpenseDetails';
-import { click } from '@testing-library/user-event/dist/click';
 
 const ExpenseItem=(props)=> { 
   const[price,setPrice]=useState(props.Amount)

@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ExpenseForm  from './ExpenseForm'
 
 export default function NewExpense(props) {
+  const[showForm,setShowForm]=useState(false)
 
   const onSaveExpense=(expense)=>{
     const newexpense={
       ...expense,
-      key:Math.random().toString()
+      id:Math.random().toString()
     }
     props.onAddExpenseHandler(newexpense)
+    setShowForm(false)
 
+  }
+  const addHandler=()=>{
+    setShowForm(true)
+  }
+  const cancelHandler=()=>{
+    setShowForm(false)
   }
   return (
     <div className='new-expense'>
-        <ExpenseForm  onSaveHandler={onSaveExpense}/>
+      {!showForm && <button onClick={addHandler}>Add more Expenses</button>}
+      {showForm && <ExpenseForm onSaveHandler={onSaveExpense} onCancel={cancelHandler}/>}
+      
+        
       
     </div>
   )

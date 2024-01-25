@@ -33,6 +33,7 @@ export default function ExpenseForm(props) {
       location:enteredLocation
     };
     props.onSaveHandler(expenseData);
+    
     setEnteredTitle('')
     setenteredAmount('')
     setenteredDate('')
@@ -79,7 +80,12 @@ export default function ExpenseForm(props) {
         </div>
         <div className="new-expense__actions">
           <button type="submit">Add Expenses</button>
+          <button type="button" onClick={props.onCancel}>Cancel</button>
         </div>
+        <div className="new-expense__actions">
+          
+        </div>
+
       </div>
     </form>
   );

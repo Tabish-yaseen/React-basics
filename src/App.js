@@ -5,6 +5,8 @@ import ExpenseFilter from './components/Expenses/ExpenseFilter';
 import Cards from './components/UI/Cards';
 import NewExpense from './components/NewExpense/NewExpense';
 
+
+
 const previousExpenses = [
   { id: '1', title: 'food', Amount: 100, time: new Date(2025, 0, 20), location: 'delhi' },
   { id: '2', title: 'petrol', Amount: 200, time: new Date(2024, 0, 21), location: 'mumbai' },
@@ -15,7 +17,6 @@ const previousExpenses = [
 function App() {
   const [updatedExpenses, setExpenses] = useState(previousExpenses);
   const [selectedValue, setSelectedValue] = useState('2023');
-
 
   const addExpense=(expense)=>{
     setExpenses((previousExpenses)=>{
@@ -30,6 +31,7 @@ function App() {
       return expense.time.getFullYear() === parseInt(value);
     }));
   };
+
   const deleteExpenses = (key) => {
     setExpenses((prevExpenses) => {
       return prevExpenses.filter((expense) => expense.id !== key);
